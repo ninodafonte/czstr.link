@@ -37,7 +37,7 @@ export default function Home() {
               fontWeight="bold"
               _hover={{ bg: "white", color: "purple.500" }}>
               <LinkOverlay href="/api/auth/login">
-                Start creating your shortlinks
+                `Enlacitos cortos`
               </LinkOverlay>
             </LinkBox>
           )}
