@@ -10,19 +10,21 @@ export function Footer() {
         justify="center"
         textAlign="center">
         <Text fontSize="sm" color="gray.500">
-          Made by{" "}
+          Forked from{" "}
+          <Link href="//github.com/carlosazaustre/czstr.link">
+            Carlos Azaustre
+          </Link>
+        </Text>
+        <Text fontSize="s" color="gray.500">
+          With
           <span role="img" aria-label="love">
-            ❤️
-          </span>
+            🦄
+          </span>{" "}
           &amp;{" "}
           <span role="img" aria-label="code">
-            💻
+            🌈
           </span>{" "}
-          by <Link href="//carlosazaustre.es">Carlos Azaustre</Link>
-        </Text>
-        <Text fontSize="xs" color="gray.500">
-          Powered by <Link href="//vercel.com">Vercel</Link> &{" "}
-          <Link href="/zipuc3s">Digital Ocean</Link>
+          by <Link href="//github.com/ninodafonte">Nino Dafonte</Link>
         </Text>
       </Flex>
     </Container>
