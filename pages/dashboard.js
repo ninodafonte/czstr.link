@@ -57,7 +57,7 @@ export default function Dashboard({ links }) {
                   <Td>
                     <LinkIcon color="purple.500" />
                     <Link ml={2} color="purple.500" href={`/${link.shortUrl}`}>
-                      czstr.link/<strong>{link.shortUrl}</strong>
+                      enlacito.de/<strong>{link.shortUrl}</strong>
                     </Link>
                   </Td>
                   <Td>
