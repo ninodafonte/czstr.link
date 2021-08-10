@@ -23,7 +23,7 @@ import { Footer, Nav } from "@/components";
 import { formatDate } from "@/lib/date";
 import { getUserByEmail } from "@/lib/db";
 
-export default function Dashboard({ links }) {
+export default function Dashboard({ links, link_domain }) {
   return (
     <div>
       <Head>
@@ -57,7 +57,7 @@ export default function Dashboard({ links }) {
                   <Td>
                     <LinkIcon color="purple.500" />
                     <Link ml={2} color="purple.500" href={`/${link.shortUrl}`}>
-                      enlacito.de/<strong>{link.shortUrl}</strong>
+                      {link_domain}/<strong>{link.shortUrl}</strong>
                     </Link>
                   </Td>
                   <Td>
@@ -89,6 +89,11 @@ export const getServerSideProps = withPageAuthRequired({
 
     const { links } = await getUserByEmail(email);
 
-    return { props: { links: JSON.parse(JSON.stringify(links)) } };
+    return {
+      props: {
+        links: JSON.parse(JSON.stringify(links)),
+        link_domain: process.env.LINK_DOMAIN,
+      },
+    };
   },
 });

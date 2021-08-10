@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import { Footer, FormAdd, Header, Nav } from "@/components";
 
-export default function Home() {
+export default function Home(props) {
   const { user, error } = useUser();
 
   if (error) return <div>Error: {error}</div>;
@@ -22,7 +22,7 @@ export default function Home() {
         <main>
           <Header />
           {user ? (
-            <FormAdd />
+            <FormAdd domain={props.link_domain} />
           ) : (
             <LinkBox
               bg="purple.500"
@@ -36,9 +36,7 @@ export default function Home() {
               fontSize="xl"
               fontWeight="bold"
               _hover={{ bg: "white", color: "purple.500" }}>
-              <LinkOverlay href="/api/auth/login">
-                `Enlacitos cortos`
-              </LinkOverlay>
+              <LinkOverlay href="/api/auth/login">Enlacitos cortos</LinkOverlay>
             </LinkBox>
           )}
         </main>
@@ -47,4 +45,12 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      link_domain: process.env.LINK_DOMAIN,
+    },
+  };
 }
