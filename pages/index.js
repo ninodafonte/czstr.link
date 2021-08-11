@@ -22,7 +22,7 @@ export default function Home(props) {
         <main>
           <Header />
           {user ? (
-            <FormAdd domain={props.link_domain} />
+            <FormAdd />
           ) : (
             <LinkBox
               bg="purple.500"
@@ -45,12 +45,4 @@ export default function Home(props) {
       <Footer />
     </div>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      link_domain: process.env.LINK_DOMAIN,
-    },
-  };
 }

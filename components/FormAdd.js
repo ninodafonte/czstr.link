@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export function FormAdd(props) {
+export function FormAdd() {
   const {
     register,
     handleSubmit,
@@ -35,7 +35,7 @@ export function FormAdd(props) {
 
     const res = await response.json();
     reset(response);
-    setLink(`${props.domain}/${res.data.shortUrl}`);
+    setLink(`${process.env.NEXT_PUBLIC_LINK_DOMAIN}/${res.data.shortUrl}`);
 
     toast({
       title: "Short URL copied to clipboard",
