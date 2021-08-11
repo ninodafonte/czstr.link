@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import { Footer, FormAdd, Header, Nav } from "@/components";
 
-export default function Home(props) {
+export default function Home() {
   const { user, error } = useUser();
 
   if (error) return <div>Error: {error}</div>;
