@@ -37,7 +37,7 @@ export default function Dashboard({ links }) {
         <main>
           <Table variant="striped" colorScheme="purple" m={8}>
             <TableCaption placement="top" fontSize="3xl" fontWeight="bold">
-              List of all my short links
+              List of all our short links
             </TableCaption>
             <Thead>
               <Tr>

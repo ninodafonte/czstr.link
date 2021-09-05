@@ -44,7 +44,7 @@ export function Nav() {
         rounded="lg"
         maxW="md"
         _hover={{ bg: "purple.500", color: "white" }}>
-        <LinkOverlay href="/dashboard">My Links</LinkOverlay>
+        <LinkOverlay href="/dashboard">Our Links</LinkOverlay>
       </LinkBox>
 
       <LinkBox
