@@ -21,7 +21,7 @@ import Head from "next/head";
 
 import { Footer, Nav } from "@/components";
 import { formatDate } from "@/lib/date";
-import { getUserByEmail } from "@/lib/db";
+import { getTeamLinks } from "@/lib/db";
 
 export default function Dashboard({ links }) {
   return (
@@ -44,6 +44,7 @@ export default function Dashboard({ links }) {
                 <Th>Created</Th>
                 <Th>ShortLink</Th>
                 <Th>URL</Th>
+                <Th>Created by</Th>
                 <Th>Clicks</Th>
               </Tr>
             </Thead>
@@ -68,6 +69,9 @@ export default function Dashboard({ links }) {
                     <ExternalLinkIcon color="purple.500" />
                   </Td>
                   <Td>
+                    <span>{link.user.email}</span>
+                  </Td>
+                  <Td>
                     <DownloadIcon color="purple.500" />
                     <Box as="span">{link.clicks}</Box>
                   </Td>
@@ -88,7 +92,7 @@ export const getServerSideProps = withPageAuthRequired({
       user: { email },
     } = await getSession(req, res);
 
-    const { links } = await getUserByEmail(email);
+    const links = await getTeamLinks(email);
 
     return {
       props: {

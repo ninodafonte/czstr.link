@@ -71,6 +71,24 @@ export function FormAdd() {
             borderColor={(errors?.url && "red.400") || "gray.200"}
           />
           <Text color="red">{errors?.url?.message}</Text>
+          <Input
+            bg="white"
+            size="lg"
+            placeholder="Enter a slug..."
+            type="text"
+            {...register("shortUrl", {
+              required: {
+                value: true,
+                message: "The field is required",
+              },
+              pattern: {
+                value: /[-a-zA-Z0-9_+#=]{2,25}/,
+                message: "The slug is invalid",
+              },
+            })}
+            borderColor={(errors?.shortUrl && "red.400") || "gray.200"}
+          />
+          <Text color="red">{errors?.shortUrl?.message}</Text>
           <Button
             type="submit"
             colorScheme="purple"

@@ -4,8 +4,7 @@ import { createShortLink, getUserByEmail } from "@/lib/db";
 
 export default async function handler(req, res) {
   const { user } = await getSession(req, res);
-  const { url } = req.body;
-  const shortUrl = Math.random().toString(36).substr(2, 7);
+  const { url, shortUrl } = req.body;
 
   try {
     const userDB = await getUserByEmail(user.email);
